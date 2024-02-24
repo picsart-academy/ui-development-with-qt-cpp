@@ -22,7 +22,7 @@ int main()
     std::cin >> choice;
 
     // Assign the corresponding sorting function based on user's choice
-    switch (choice) 
+    switch (choice)
     {
         case 1:
             sortFunc = bubbleSort;
@@ -40,7 +40,7 @@ int main()
 
     // Display the sorted array
     std::cout << "Sorted array:";
-    for (int i = 0; i < sizeof(array) / sizeof(array[0]); ++i) 
+    for (int i = 0; i < sizeof(array) / sizeof(array[0]); ++i)
     {
         std::cout << " " << array[i];
     }
@@ -50,14 +50,14 @@ int main()
 }
 
 // Bubble sort algorithm
-void bubbleSort(int* array, int size) 
+void bubbleSort(int* array, int size)
 {
     bool swapped = false;
-    for (int i = 0; i < size - 1; ++i) 
+    for (int i = 0; i < size - 1; ++i)
     {
-        for (int j = 0; j < size - i - 1; ++j) 
+        for (int j = 0; j < size - i - 1; ++j)
         {
-            if (array[j] > array[j + 1]) 
+            if (array[j] > array[j + 1])
             {
                 // Swap elements if they are in the wrong order
                 int temp = array[j];
@@ -67,7 +67,7 @@ void bubbleSort(int* array, int size)
             }
         }
         // If no two elements were swapped in the inner loop, the array is already sorted
-        if (!swapped) 
+        if (!swapped)
         {
             return;
         }
