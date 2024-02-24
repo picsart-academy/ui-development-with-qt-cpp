@@ -6,7 +6,7 @@ double subtract(double a, double b);  // Function to perform subtraction
 double multiply(double a, double b);  // Function to perform multiplication
 double divide(double a, double b);    // Function to perform division
 
-int main() 
+int main()
 {
     double num1 = 0, num2 = 0;
 
@@ -24,30 +24,30 @@ int main()
 }
 
 // Function to perform addition
-double add(double a, double b) 
+double add(double a, double b)
 {
     return a + b;
 }
 
 // Function to perform subtraction
-double subtract(double a, double b) 
+double subtract(double a, double b)
 {
     return a - b;
 }
 
 // Function to perform multiplication
-double multiply(double a, double b) 
+double multiply(double a, double b)
 {
     return a * b;
 }
 
 // Function to perform division
-double divide(double a, double b) 
+double divide(double a, double b)
 {
-    if (b != 0) 
+    if (b != 0)
     {
         return a / b;
-    } else 
+    } else
     {
         std::cout << "Error: Division by zero!" << std::endl;
         return 0; // Returning 0 for division by zero, can be customized based on requirements

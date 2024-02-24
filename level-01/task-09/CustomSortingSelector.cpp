@@ -1,18 +1,33 @@
 #include <iostream>
 
-// Function pointer type for sorting functions
+// Enum for sorting strategies
+enum class SortingStrategy
+{
+    BUBBLE_SORT,
+    SELECTION_SORT
+};
+
 typedef void (*SortFunction)(int*, int);
 
-void bubbleSort(int* array, int size) ;
+// Struct to represent a sorting option
+struct SortingOption
+{
+    SortingStrategy strategy;
+    SortFunction sortFunc;
+};
+
+
+void bubbleSort(int* array, int size);
 void selectionSort(int* array, int size);
 
-int main() 
-{
-    // Array of unsorted integers
-    int array[] = {5, 2, 9, 1, 7};
 
-    // Function pointer for sorting algorithm
-    SortFunction sortFunc = nullptr;
+int main()
+{
+    // Array of sorting options
+    SortingOption sortingOptions[] = {
+        {SortingStrategy::BUBBLE_SORT, bubbleSort},
+        {SortingStrategy::SELECTION_SORT, selectionSort}
+    };
 
     // Prompt the user to select a sorting algorithm
     std::cout << "Select a sorting algorithm:\n"
@@ -21,26 +36,31 @@ int main()
     int choice = 0;
     std::cin >> choice;
 
-    // Assign the corresponding sorting function based on user's choice
-    switch (choice) 
+    // Select the sorting option based on user's choice
+    SortingOption selectedOption;
+    switch (choice)
     {
         case 1:
-            sortFunc = bubbleSort;
+            selectedOption = sortingOptions[0];
             break;
         case 2:
-            sortFunc = selectionSort;
+            selectedOption = sortingOptions[1];
             break;
         default:
             std::cout << "Invalid choice! Exiting...\n";
             return 1;
     }
 
-    // Invoke the selected sorting algorithm using the function pointer
-    sortFunc(array, sizeof(array) / sizeof(array[0]));
+    // Initialize an array of integers with unsorted values
+    int array[] = {13, 2, 6, 1, 7, 8, 3, 12, -5};
+    int size = sizeof(array) / sizeof(*array);
+
+    // Execute the selected sorting strategy
+    selectedOption.sortFunc(array, size);
 
     // Display the sorted array
     std::cout << "Sorted array:";
-    for (int i = 0; i < sizeof(array) / sizeof(array[0]); ++i) 
+    for (int i = 0; i < size; ++i)
     {
         std::cout << " " << array[i];
     }
@@ -50,14 +70,14 @@ int main()
 }
 
 // Bubble sort algorithm
-void bubbleSort(int* array, int size) 
+void bubbleSort(int* array, int size)
 {
     bool swapped = false;
-    for (int i = 0; i < size - 1; ++i) 
+    for (int i = 0; i < size - 1; ++i)
     {
-        for (int j = 0; j < size - i - 1; ++j) 
+        for (int j = 0; j < size - i - 1; ++j)
         {
-            if (array[j] > array[j + 1]) 
+            if (array[j] > array[j + 1])
             {
                 // Swap elements if they are in the wrong order
                 int temp = array[j];
@@ -66,8 +86,7 @@ void bubbleSort(int* array, int size)
                 swapped = true;
             }
         }
-        // If no two elements were swapped in the inner loop, the array is already sorted
-        if (!swapped) 
+        if (!swapped)
         {
             return;
         }
@@ -75,7 +94,7 @@ void bubbleSort(int* array, int size)
 }
 
 // Selection sort algorithm
-void selectionSort(int* array, int size) 
+void selectionSort(int* array, int size)
 {
     for (int i = 0; i < size - 1; ++i)
     {
@@ -87,7 +106,6 @@ void selectionSort(int* array, int size)
                 minIndex = j;
             }
         }
-        // Swap the minimum element with the current element if they are different
         if (minIndex != i)
         {
             int temp = array[i];

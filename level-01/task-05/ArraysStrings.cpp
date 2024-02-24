@@ -39,10 +39,10 @@ int main()
     return 0;
 }
 
-int maximum(const int* arr, int size) 
+int maximum(const int* arr, int size)
 {
     int max = arr[0];
-    for (int i = 1; i < size; ++i) 
+    for (int i = 1; i < size; ++i)
     {
         if (arr[i] > max) 
         {
@@ -52,12 +52,12 @@ int maximum(const int* arr, int size)
     return max;
 }
 
-int minimum(const int* arr, int size) 
+int minimum(const int* arr, int size)
 {
     int min = arr[0];
-    for (int i = 1; i < size; ++i) 
+    for (int i = 1; i < size; ++i)
     {
-        if (arr[i] < min) 
+        if (arr[i] < min)
         {
             min = arr[i];
         }
@@ -65,10 +65,10 @@ int minimum(const int* arr, int size)
     return min;
 }
 
-double average(const int* arr, int size) 
+double average(const int* arr, int size)
 {
     double sum = 0;
-    for (int i = 0; i < size; ++i) 
+    for (int i = 0; i < size; ++i)
     {
         sum += arr[i];
     }

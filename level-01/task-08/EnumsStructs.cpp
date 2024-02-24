@@ -2,7 +2,7 @@
 #include <string>
 
 // Enum for days of the week
-enum DayOfWeek 
+enum DayOfWeek
 {
     Monday,
     Tuesday,
@@ -14,7 +14,7 @@ enum DayOfWeek
 };
 
 // Struct representing a Date
-struct Date 
+struct Date
 {
     int day;
     int month;
@@ -25,7 +25,7 @@ DayOfWeek calculateDayOfWeek(const Date& date);
 void printDate(DayOfWeek dayOfWeek, const Date& date);
 std::string weekDayToString(DayOfWeek dayOfWeek);
 
-int main() 
+int main()
 {
     // Create a Date object
     Date today = {23, 2, 2024};
@@ -45,7 +45,7 @@ void printDate(DayOfWeek dayOfWeek, const Date& date)
 }
 
 // Function to convert DayOfWeek enum value to string
-std::string weekDayToString(DayOfWeek dayOfWeek) 
+std::string weekDayToString(DayOfWeek dayOfWeek)
 {
     switch (dayOfWeek) 
     {

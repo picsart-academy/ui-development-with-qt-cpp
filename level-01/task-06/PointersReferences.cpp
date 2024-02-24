@@ -3,7 +3,7 @@
 void manipulateByReference(int& ref);
 void manipulateByPointer(int* ptr);
 
-int main() 
+int main()
 {
     int num = 10; // Declare an integer variable
     int* ptr = &num; // Declare a pointer variable and assign the address of num to it
